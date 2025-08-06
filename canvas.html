@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 01</title>
+    
+</head>
+<body>
+    <h1>Computação grafica - aula 1</h1>
+
+    <canvas id="areaDesenho" width="800" height="600" style=" border: 2px solid rgb(83, 83, 83)"  >
+        Seu navegador é uma merda
+    </canvas>
+    <p>Dimensoes: 800 x 600 px</p>
+    <script>
+        const canvas = document.getElementById('areaDesenho');
+        const ctx = canvas.getContext('2d');
+        
+
+        console.log('largura', canvas.width)
+        console.log('altura', canvas.height)
+        console.log('Contexto obtido', ctx)
+        
+    </script>
+</body>
+</html>
