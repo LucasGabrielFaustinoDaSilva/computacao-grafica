@@ -1,0 +1,26 @@
+DOCTYPE html>
+<html>
+
+<head>
+    <title>2. Dois Pontos</title>
+</head>
+
+<body>
+    <h2>Desenhando DOIS pontos</h2>
+    <canvas id="canvas" width="400" height="300" style="border: 1px solid black;"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        //Primeiro ponto - vermelho
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(100, 100, 5, 0, 2 * Math.PI);
+        ctx.fill();
+        // Segundo ponto-azul
+        ctx.fillStyle = 'blue';
+        ctx.beginPath();
+        ctx.arc(250, 150, 5, 0, 2 * Math.PI);
+        ctx.fill();
+    </script>
+</body>
+</html>

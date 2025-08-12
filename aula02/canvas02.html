@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Grid Estático - Aula 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        canvas {
+            border: 2px solid #555;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Computação Gráfica - Aula 2: Grid Estático</h1>
+
+    <canvas id="areaDesenho" width="880" height="600"></canvas>
+
+    <div>
+        <p><strong>Especificações de Grid:</strong></p>
+        <ul>
+            <li>Espaçamento: 50 pixels</li>
+            <li>Cor: Cinza claro (#cccccc)</li>
+            <li>Espessura: 1 pixel</li>
+        </ul>
+    </div>
+
+    <script>
+        
+        const largura = 800;
+        const altura = 600;
+        const espacamento = 50;
+
+        const linhasVerticais = Math.floor(largura / espacamento) + 1;
+        const linhasHorizontais = Math.floor(altura / espacamento) + 1;
+
+        console.log('Linhas verticais:', linhasVerticais); 
+        console.log('Linhas horizontais:', linhasHorizontais); 
+        
+        // Pegar o elemento canvas
+        const canvas = document.getElementById('areaDesenho');
+        const ctx = canvas.getContext('2d');
+
+        // Função para desenhar o grid
+        function desenharGrid() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
+            ctx.strokeStyle = '#cccccc'; // Cor do grid
+            ctx.lineWidth = 1; // Espessura das linhas
+
+            const espacamento = 50;
+
+            // Linhas verticais
+            for (let x = 0; x <= canvas.width; x += espacamento) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+
+            // Linhas horizontais
+            for (let y = 0; y <= canvas.height; y += espacamento) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+
+            console.log('Grid desenhado com espaçamento de ${espacamento} pixels');
+        }
+
+        // Chamar a função para desenhar
+        desenharGrid();
+    </script>
+
+</body>
+
+</html>
