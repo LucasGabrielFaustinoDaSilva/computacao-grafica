@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>6. Retas Paralelas Verticais</title>
+</head>
+<body>
+    <h2>Duas retas paralelas verticais</h2>
+    <canvas id="canvas" width="400" height="300" style="border: 1px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Primeira reta (vertical à esquerda)
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(100, 50); // Reta começa em x = 100, y = 50
+        ctx.lineTo(100, 250); // Termina em y = 250
+        ctx.stroke();
+
+        // Segunda reta (vertical à direita, 150px distante da primeira)
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(250, 50); // x = 250 (100 + 150)
+        ctx.lineTo(250, 250); // Mesma altura da primeira reta
+        ctx.stroke();
+
+        // Texto explicativo
+        ctx.fillStyle = 'black';
+        ctx.font = "12px Arial";
+        ctx.fillText('Reta 1 (azul)', 60, 45); // Texto acima da primeira reta
+        ctx.fillText('Reta 2 (vermelha)', 260, 45); // Texto acima da segunda reta
+        ctx.fillText('Distância: 150px', 140, 30); // Texto centralizado entre as retas
+
+        // Linha tracejada horizontal mostrando a distância entre as retas
+        ctx.strokeStyle = 'gray';
+        ctx.setLineDash([5, 5]); // Define traçado tracejado
+        ctx.beginPath();
+        ctx.moveTo(100, 150); // Começa no meio da primeira reta
+        ctx.lineTo(250, 150); // Vai até a segunda reta
+        ctx.stroke();
+        ctx.setLineDash([]); // Restaura linha contínua para próximos desenhos
+    </script>
+</body>
+</html>

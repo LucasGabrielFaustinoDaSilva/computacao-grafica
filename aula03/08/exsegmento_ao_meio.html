@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>8. Ponto Médio</title>
+</head>
+<body>
+    <h2>Exercício 08: Ponto médio entre (50, 50) e (350, 250)</h2>
+    <canvas id="canvas" width="400" height="300" style="border:1px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Pontos dados
+        const p1 = { x: 50, y: 50 };
+        const p2 = { x: 350, y: 250 };
+
+        // Calcula ponto médio
+        const pm = {
+            x: (p1.x + p2.x) / 2,
+            y: (p1.y + p2.y) / 2
+        };
+
+        // Desenha a linha entre p1 e p2
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+
+        // Marca os pontos iniciais
+        ctx.fillStyle = 'blue';
+        ctx.beginPath();
+        ctx.arc(p1.x, p1.y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.fillText(`(${p1.x}, ${p1.y})`, p1.x + 8, p1.y - 8);
+
+        ctx.beginPath();
+        ctx.arc(p2.x, p2.y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.fillText(`(${p2.x}, ${p2.y})`, p2.x + 8, p2.y - 8);
+
+        // Marca o ponto médio
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(pm.x, pm.y, 7, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Escreve o texto do ponto médio
+        ctx.fillStyle = 'red';
+        ctx.font = "16px Arial";
+        ctx.fillText(`Ponto Médio (${pm.x}, ${pm.y})`, pm.x + 10, pm.y - 10);
+    </script>
+</body>
+</html>

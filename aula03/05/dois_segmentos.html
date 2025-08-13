@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>12 - Dois Segmentos: AB e CD</title>
+</head>
+<body>
+    <h2>12 - Dois segmentos: AB e CD</h2>
+    <canvas id="canvas" width="400" height="300" style="border: 1px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Coordenadas dos pontos
+        const A = { x: 50, y: 100 };
+        const B = { x: 200, y: 120 };
+        const C = { x: 100, y: 200 };
+        const D = { x: 350, y: 180 };
+
+        // Desenha o segmento AB
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(A.x, A.y);
+        ctx.lineTo(B.x, B.y);
+        ctx.stroke();
+
+        // Desenha o segmento CD
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(C.x, C.y);
+        ctx.lineTo(D.x, D.y);
+        ctx.stroke();
+
+        // Função para desenhar um ponto
+        function desenhaPonto(ponto, cor) {
+            ctx.fillStyle = cor;
+            ctx.beginPath();
+            ctx.arc(ponto.x, ponto.y, 4, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        // Desenha os pontos A, B, C e D
+        desenhaPonto(A, 'red');
+        desenhaPonto(B, 'red');
+        desenhaPonto(C, 'blue');
+        desenhaPonto(D, 'blue');
+
+        // Escreve os nomes dos pontos
+        ctx.fillStyle = 'black';
+        ctx.font = "14px Arial";
+        ctx.fillText("A", A.x - 15, A.y - 10);
+        ctx.fillText("B", B.x + 10, B.y - 10);
+        ctx.fillText("C", C.x - 15, C.y + 20);
+        ctx.fillText("D", D.x + 10, D.y + 20);
+    </script>
+</body>
+</html>

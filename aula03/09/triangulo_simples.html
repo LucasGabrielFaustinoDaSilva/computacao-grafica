@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>9. Triângulo</title>
+</head>
+<body>
+  <h2>Meu primeiro triângulo</h2>
+  <canvas id="canvas" width="400" height="300" style="border: 1px solid black;"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Três vértices do triângulo
+    const A = {x: 200, y: 50};   // Vértice superior
+    const B = {x: 100, y: 200};  // Vértice inferior esquerdo
+    const C = {x: 300, y: 200};  // Vértice inferior direito
+
+    // Desenha o triângulo
+    ctx.strokeStyle = 'blue';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(A.x, A.y);       // Vai para A
+    ctx.lineTo(B.x, B.y);       // Linha AB
+    ctx.lineTo(C.x, C.y);       // Linha BC
+    ctx.lineTo(A.x, A.y);       // Linha CA (fecha o triângulo)
+    ctx.stroke();
+
+    // Desenha os vértices
+    ctx.fillStyle = 'red';
+    [A, B, C].forEach(ponto => {
+      ctx.beginPath();
+      ctx.arc(ponto.x, ponto.y, 5, 0, 2 * Math.PI);
+      ctx.fill();
+    });
+
+    // Nomes dos vértices
+    ctx.fillStyle = 'black';
+    ctx.font = "16px Arial";
+    ctx.fillText('A', A.x - 10, A.y - 10);
+    ctx.fillText('B', B.x - 20, B.y + 20);
+    ctx.fillText('C', C.x + 10, C.y + 20);
+  </script>
+</body>
+</html>

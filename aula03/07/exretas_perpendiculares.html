@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>7. Ponto de Intersecção</title>
+</head>
+<body>
+    <h2>Exercício 07: Ponto de intersecção em (150, 100)</h2>
+    <canvas id="canvas" width="400" height="300" style="border:1px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Reta 1: Diagonal ascendente (passando por (150, 100))
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(50, 150);      // ponto inicial
+        ctx.lineTo(250, 50);      // ponto final (passa por (150, 100))
+        ctx.stroke();
+
+        // Reta 2: Diagonal descendente (também passando por (150, 100))
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(50, 50);       // ponto inicial
+        ctx.lineTo(250, 150);     // ponto final (passa por (150, 100))
+        ctx.stroke();
+
+        // Ponto de intersecção
+        const intersecao = { x: 150, y: 100 };
+
+        ctx.fillStyle = 'black';
+        ctx.beginPath();
+        ctx.arc(intersecao.x, intersecao.y, 5, 0, 2 * Math.PI); // ponto no centro
+        ctx.fill();
+
+        // Nome do ponto
+        ctx.fillStyle = 'black';
+        ctx.font = "14px Arial";
+        ctx.fillText("Intersecção (150, 100)", intersecao.x + 10, intersecao.y - 10);
+
+    </script>
+</body>
+</html>

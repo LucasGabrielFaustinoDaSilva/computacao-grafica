@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercício 09: Triângulo</title>
+</head>
+<body>
+  <h2>Triângulo com vértices em (150, 80), (80, 220) e (220, 220)</h2>
+  <canvas id="canvas" width="300" height="300" style="border: 1px solid black;"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Vértices do triângulo
+    const A = {x: 150, y: 80};
+    const B = {x: 80, y: 220};
+    const C = {x: 220, y: 220};
+
+    // Desenha o triângulo
+    ctx.strokeStyle = 'blue';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(A.x, A.y);
+    ctx.lineTo(B.x, B.y);
+    ctx.lineTo(C.x, C.y);
+    ctx.closePath();  // Fecha o triângulo automaticamente
+    ctx.stroke();
+
+    // Desenha os vértices em vermelho
+    ctx.fillStyle = 'red';
+    [A, B, C].forEach(ponto => {
+      ctx.beginPath();
+      ctx.arc(ponto.x, ponto.y, 5, 0, 2 * Math.PI);
+      ctx.fill();
+    });
+
+    // Nomes dos vértices
+    ctx.fillStyle = 'black';
+    ctx.font = '16px Arial';
+    ctx.fillText('A', A.x - 15, A.y - 10);
+    ctx.fillText('B', B.x - 25, B.y + 15);
+    ctx.fillText('C', C.x + 10, C.y + 15);
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Três Pontos com Nomes</title>
+</head>
+
+<body>
+    <h2>Três pontos: A, B e C</h2>
+    <canvas id="canvas" width="400" height="300" style="border: 1px solid black;"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Ponto A
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(100, 100, 5, 0, 2 * Math.PI); // posição original mantida
+        ctx.fill();
+        ctx.fillStyle = "black";
+        ctx.font = "16px Arial";
+        ctx.fillText('A', 110, 105);
+
+        // Ponto B
+        ctx.fillStyle = 'blue';
+        ctx.beginPath();
+        ctx.arc(300, 100, 5, 0, 2 * Math.PI); // <-- alterado para alinhar B com A horizontalmente (mais simétrico)
+        ctx.fill();
+        ctx.fillStyle = 'black';
+        ctx.fillText('B', 310, 105); // <-- alterado para acompanhar nova posição de B
+
+        // Ponto C
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        ctx.arc(200, 200, 5, 0, 2 * Math.PI); // <-- alterado para centralizar C entre A e B
+        ctx.fill();
+        ctx.fillStyle = 'black';
+        ctx.fillText('C', 210, 205); // <-- alterado para acompanhar nova posição de C
+    </script>
+</body>
+
+</html>

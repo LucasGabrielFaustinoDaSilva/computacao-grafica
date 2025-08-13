@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Primeiro Segmento</title>
+</head>
+<body>
+    <h2>Meu primeiro segmento AB</h2>
+    <canvas id="canvas" width="400" height="300" style="border: 1px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Coordenadas dos pontos A e B
+        const pontoA = { x: 200, y: 50 };   // <-- ponto A ajustado conforme enunciado
+        const pontoB = { x: 200, y: 250 };  // <-- ponto B ajustado conforme enunciado
+
+        // Desenha o segmento de reta entre A e B
+        ctx.strokeStyle = "black";  // cor da linha
+        ctx.lineWidth = 2;          // espessura da linha
+        ctx.beginPath();
+        ctx.moveTo(pontoA.x, pontoA.y); // começa em A
+        ctx.lineTo(pontoB.x, pontoB.y); // vai até B
+        ctx.stroke();
+
+        // Desenha o ponto A
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        ctx.arc(pontoA.x, pontoA.y, 5, 0, 2 * Math.PI); // círculo no ponto A
+        ctx.fill();
+
+        // Desenha o ponto B
+        ctx.fillStyle = 'blue';
+        ctx.beginPath();
+        ctx.arc(pontoB.x, pontoB.y, 5, 0, 2 * Math.PI); // círculo no ponto B
+        ctx.fill();
+
+        // Escreve os nomes dos pontos
+        ctx.fillStyle = 'black';
+        ctx.font = "16px Arial";
+        ctx.fillText('A', pontoA.x - 15, pontoA.y - 10); // nome A
+        ctx.fillText('B', pontoB.x + 10, pontoB.y - 10); // nome B
+    </script>
+</body>
+</html>
