@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>6. Retas Paralelas</title>
+</head>
+<body>
+  <h2>Duas retas paralelas</h2>
+  <canvas id="canvas" width="400" height="300" style="border: 1px solid black;"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Primeira reta (horizontal superior)
+    ctx.strokeStyle = 'blue';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(50, 100);   // Início da linha
+    ctx.lineTo(350, 100);  // Fim da linha
+    ctx.stroke();
+
+    // Segunda reta (horizontal inferior, paralela à primeira)
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(50, 200);   // Mesma direção, 100px abaixo
+    ctx.lineTo(350, 200);
+    ctx.stroke();
+
+    // Texto explicativo
+    ctx.fillStyle = 'black';
+    ctx.font = '12px Arial';
+    ctx.fillText('Reta 1 (azul)', 60, 90);
+    ctx.fillText('Reta 2 (vermelha)', 60, 190);
+    ctx.fillText('Distância: 100px', 60, 150);
+
+    // Linha tracejada mostrando a distância
+    ctx.strokeStyle = 'gray';
+    ctx.setLineDash([5, 5]);
+    ctx.beginPath();
+    ctx.moveTo(100, 100);
+    ctx.lineTo(100, 200);
+    ctx.stroke();
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>8. Ponto Médio</title>
+</head>
+<body>
+  <h2>Dividindo segmento ao meio</h2>
+  <canvas id="canvas" width="400" height="300" style="border: 1px solid black;"></canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Pontos extremos do segmento
+    const A = {x: 100, y: 100};
+    const B = {x: 300, y: 200};
+
+    // Calcula o ponto médio
+    const meio = {
+      x: (A.x + B.x) / 2, // Média das coordenadas x
+      y: (A.y + B.y) / 2  // Média das coordenadas y
+    };
+
+    // Desenha o segmento
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(A.x, A.y);
+    ctx.lineTo(B.x, B.y);
+    ctx.stroke();
+
+    // Desenha os pontos extremos
+    ctx.fillStyle = 'blue';
+    ctx.beginPath();
+    ctx.arc(A.x, A.y, 5, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(B.x, B.y, 5, 0, 2 * Math.PI);
+    ctx.fill();
+
+    // Desenha o ponto médio
+    ctx.fillStyle = 'red';
+    ctx.beginPath();
+    ctx.arc(meio.x, meio.y, 6, 0, 2 * Math.PI);
+    ctx.fill();
+
+    // Nomes dos pontos
+    ctx.fillStyle = 'black';
+    ctx.font = '14px Arial';
+    ctx.fillText('A', A.x - 15, A.y - 10);
+    ctx.fillText('B', B.x + 10, B.y + 20);
+    ctx.fillText('M (meio)', meio.x + 10, meio.y - 10);
+  </script>
+</body>
+</html>

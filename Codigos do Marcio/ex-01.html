@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>1. Um Ponto</title>
+</head>
+<body>
+  <h2>Desenhando UM ponto</h2>
+  <canvas id="canvas" width="400" height="300" style="border: 1px solid black;"></canvas>
+
+  <script>
+    // Pega o canvas e o contexto de desenho
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Define a cor de preenchimento como vermelha
+    ctx.fillStyle = 'red';
+
+    // Desenha um círculo (ponto) na posição x=100, y=100 com raio 5
+    ctx.beginPath();
+    ctx.arc(100, 100, 5, 0, 2 * Math.PI);
+    ctx.fill();
+  </script>
+</body>
+</html>
