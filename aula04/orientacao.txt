@@ -1,0 +1,9 @@
+Vamos fazer uma pixel-art, precisamos definir o tamanho do canvas (width e weight) as vezes pega dinamicamente
+
+cores que serao usadas:
+    #000000
+    #ff09deff
+
+    conta como linhas(por exemplo as duas sao brancas)
+
+    sempre conta os blocos para desenhar, 
