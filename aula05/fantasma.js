@@ -71,17 +71,12 @@ function mover(novaDirecao) {
 }
 
 // Escutar as teclas do teclado
-document.addEventListener('keydown', function(evento) {
-    if (evento.key === 'ArrowRight') {
-        mover('direita');
-    } else if (evento.key === 'ArrowLeft') {
-        mover('esquerda');
-    } else if (evento.key === 'ArrowUp') {
-        mover('cima');
-    } else if (evento.key === 'ArrowDown') {
-        mover('baixo');
-    }
-});
+setInterval(function () {
+    const direcoes = ['direita', 'esquerda', 'cima', 'baixo'];
+    const direcaoAleatoria = direcoes[Math.floor(Math.random() * direcoes.length)];
+    mover(direcaoAleatoria);
+}, 10);
+
 
 // Desenhar pela primeira vez quando a página carregar
 window.addEventListener('load', function() {
