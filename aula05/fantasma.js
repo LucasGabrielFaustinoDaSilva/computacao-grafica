@@ -61,10 +61,10 @@ function mover(novaDirecao) {
     }
     
     // Não deixar sair da tela
-    if (fantasma.x < 0) fantasma.x = 0;
-    if (fantasma.x > canvas.width) fantasma.x = canvas.width;
-    if (fantasma.y < 0) fantasma.y = 0;
-    if (fantasma.y > canvas.height) fantasma.y = canvas.height;
+    if (fantasma.x < 16) fantasma.x = 16;
+    if (fantasma.x > canvas.width - 16) fantasma.x = canvas.width - 16;
+    if (fantasma.y < 16) fantasma.y = 16;
+    if (fantasma.y > canvas.height - 16) fantasma.y = canvas.height - 16;
     
     // Redesenhar
     desenhar();
